@@ -1,0 +1,41 @@
+---
+- name: Install webserver
+  hosts: proxy
+  vars:
+    apache_package: "apache2"
+    apache_service: "apache2"
+    hello_string: "Hi"
+    cleanup: false
+
+  tasks:
+    - name: Install Apache 2
+      apt:
+        name: "{{ apache_package }}"
+        state: present
+        update_cache: yes
+      when: not cleanup
+
+    - name: Set index.html
+      template:
+        src: ../templates/index.html.j2
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+      when: not cleanup
+
+    - name: Enable and start Apache service
+      service:
+        name: "{{ apache_service }}"
+        enabled: yes
+        state: started
+      when: not cleanup
+
+    - name: Cleanup index.html
+      file: path=/var/www/html/index.html state=absent
+      when: cleanup
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: "{{ apache_service }}"
+        state: restarted

@@ -1,0 +1,11 @@
+[web]
+instance01 ansible_host=40.71.180.143
+instance02 ansible_host=52.170.213.106
+
+[proxy]
+instance03 ansible_host=52.186.121.167
+
+[all:vars]
+ansible_ssh_private_key_file=secrets/azure.pem
+ansible_become=true
+ansible_user=net2008

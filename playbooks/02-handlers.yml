@@ -1,0 +1,31 @@
+---
+- name: Install Apache 2
+  hosts: proxy
+  tasks:
+    - name: Install Apache 2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Set index.html
+      copy:
+        src: ../files/index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+      notify: Restart Apache
+
+    # - meta: flush_handlers
+
+    - name: Enable and start Apache 2 service
+      service:
+        name: apache2
+        enabled: yes
+        state: started
+
+  handlers:
+    - name: Restart Apache 2
+      service:
+        name: apache2
+        state: restarted
