@@ -9,7 +9,7 @@
   tasks:
     - name: Install Apache
       package: name={{ apache_package }} state=installed
-      tags: install
+      tags: install upgrade
 
     - name: Set Apache virtual host
       template:

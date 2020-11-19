@@ -1,10 +1,9 @@
 ---
 - name: Install webserver
-  hosts: proxy
+  hosts: web
   vars:
     apache_package: "apache2"
     apache_service: "apache2"
-    hello_string: "Hi"
     cleanup: false
 
   tasks:

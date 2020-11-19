@@ -1,6 +1,6 @@
 ---
 - name: Install Apache 2
-  hosts: proxy
+  hosts: web
   tasks:
     - name: Install Apache 2
       apt:

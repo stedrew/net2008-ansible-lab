@@ -1,6 +1,6 @@
 [web]
-instance01 ansible_host=40.71.180.143
-instance02 ansible_host=52.170.213.106
+instance01 ansible_host=52.188.104.33
+instance02 ansible_host=52.188.19.189
 
 [proxy]
 instance03 ansible_host=52.186.121.167

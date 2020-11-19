@@ -9,8 +9,7 @@ Examples for Ansible Lab
 
 ## HowTo
 
-* Create EC2 instance for control machine
-* Install Ansible on it
+* Install Ansible on your computer
 * Clone this repo:
 
 ```bash

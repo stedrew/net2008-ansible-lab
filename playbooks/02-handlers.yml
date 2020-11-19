@@ -1,6 +1,6 @@
 ---
 - name: Install Apache 2
-  hosts: proxy
+  hosts: web
   tasks:
     - name: Install Apache 2
       apt:
@@ -14,7 +14,7 @@
         dest: /var/www/html/index.html
         owner: root
         group: root
-      notify: Restart Apache
+      notify: Restart Apache 2
 
     # - meta: flush_handlers
 
